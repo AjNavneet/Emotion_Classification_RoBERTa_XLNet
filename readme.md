@@ -1,40 +1,31 @@
-# Sentiment Prediction using RoBERTa and XLNet on Human Emotions Data
+# Predicting Human Emotions with RoBERTa and XLNet
 
 ## Business Objective
 
-We will discuss two more novel architectures which worked on improving over BERT performances using different training & optimization techniques. These are:
+Explore and leverage advanced language models to enhance sentiment prediction beyond BERT's capabilities. In this project, we focus on two architectures:
 
 - RoBERTa: A Robustly Optimized BERT Pretraining Approach
 - XLNet: Generalized Autoregressive Pretraining for Language Understanding
 
-We will analyze the architectures of these two models, study their training and optimization techniques, and finally use them to classify Human Emotions into separate categories.
+We use the architectures, investigate their training and optimization techniques, and apply them to classify human emotions into distinct categories.
 
 ---
 
 ## Data Description
 
-Emotion is a dataset of English Twitter messages with six basic emotions: anger, fear, joy, love, sadness, and surprise. This dataset is taken from the hugging face library. [Dataset Link](https://huggingface.co/datasets/emotion)
+The dataset, named "Emotion," comprises English Twitter messages annotated with six basic emotions: anger, fear, joy, love, sadness, and surprise. The dataset, sourced from the Hugging Face library, consists of three categories:
 
-The dataset comprises of three data categories:
+- Train: 16,000 rows, 2 columns
+- Validation: 2,000 rows, 2 columns
+- Test: 2,000 rows, 2 columns
 
-- Train - 16000 rows and 2 columns
-- Validation - 2000 rows and 2 columns
-- Test - 2000 rows and 2 columns
-
-The two columns are labels and text.
-
-- 0: sadness
-- 1: joy
-- 2: love
-- 3: anger
-- 4: fear
-- 5: surprise
+The two columns represent labels and text, with labels corresponding to different emotions (0: sadness, 1: joy, 2: love, 3: anger, 4: fear, 5: surprise).
 
 ---
 
 ## Aim
 
-The project aims at building two models, namely RoBERTa and XLNet, to perform classification on the human emotion dataset.
+The project aims to build and evaluate two emotion classification models: RoBERTa and XLNet.
 
 ---
 
@@ -54,73 +45,51 @@ The project aims at building two models, namely RoBERTa and XLNet, to perform cl
 
 ## Approach
 
-1. Install the required libraries
-2. Load the 'emotion' dataset
-3. Read the dataset across all the three categories
-4. Convert dataset object to data-frame and create a new feature
-5. Data Visualization
-   - Histogram plots
-6. RoBERTa model
-   - Create a RoBERTa model instance.
-   - Split the train and validation data
+1. **Install Required Libraries**
+2. **Load 'Emotion' Dataset**
+3. **Read Dataset Across Categories**
+4. **Convert Dataset to Dataframe and Create a New Feature**
+5. **Data Visualization**
+   - Histogram Plots
+6. **RoBERTa Model**
+   - Create RoBERTa model instance
+   - Split train and validation data
    - Perform Data Pre-processing
    - Compile RoBERTa in a K-train learner object
-   - Find the optimal learning rate
-   - Fine-tune the RoBERTa model on the dataset
-   - Check for performance metrics
-   - Save the RoBERTa model
-   - Use the RoBERTa model on the test data and check for the performance.
-7. Understand the Autoregressive and Autoencoder models
-8. XLNet model
-   - Load the required libraries
-   - Create an XLNet model instance
-   - Split the train and validation data
+   - Find optimal learning rate
+   - Fine-tune RoBERTa on the dataset
+   - Evaluate performance metrics
+   - Save RoBERTa model
+   - Apply RoBERTa on test data and assess performance
+7. **Understanding Autoregressive and Autoencoder Models**
+8. **XLNet Model**
+   - Load required libraries
+   - Create XLNet model instance
+   - Split train and validation data
    - Perform Data Pre-processing
    - Compile XLNet in a K-train learner object
    - Find optimal learning rate
-   - Fine-tune the XLNet model on the dataset
-   - Check for performance metrics
-   - Save the XLNet model
-   - Use the XLNet model on the test data and check for the performance
+   - Fine-tune XLNet on the dataset
+   - Evaluate performance metrics
+   - Save XLNet model
+   - Apply XLNet on test data and assess performance
 
 ---
 
 ## Modular Code Overview
 
-**Src folder** - This is the most important folder of the project. This folder contains all the modularized code for all the above steps in a modularized manner. This folder consists of:
+**Src Folder**
+- **Engine.py**
+- **ML_Pipeline Folder**
 
-- Engine.py
-- ML_Pipeline
+**ML_Pipeline Folder**
+- Contains functions in different Python files, appropriately named, for each step. These functions are called inside the Engine.py file.
 
-The ML_Pipeline is a folder that contains all the functions put into different python files which are appropriately named. These python functions are then called inside the Engine.py file.
+**Output Folder**
+- Contains the best-fitted model trained for this data. This model can be loaded for future use without retraining. Note: The model is built on a subset of data; running Engine.py with the entire data retrains the models.
 
-**Output folder** - The output folder contains the best-fitted model that we trained for this data. This model can be easily loaded and used for future use, and the user need not have to train all the models from the beginning. Note: This model is built over a chunk of data. One can obtain the model for the entire data by running Engine.py by taking the entire data to train the models.
+**Lib Folder**
+- Contains the original IPython notebooks.
 
-**Lib folder** - This folder contains the original Ipython notebooks.
-
----
-
-## Key Concepts Explore
-
-1. Understanding the business problem.
-2. Transformer Architecture
-3. Concept of Self Attention
-4. BERT model overview
-5. Understanding of the RoBERTa model (A Robustly Optimized BERT Pretraining Approach)
-6. Various approaches for the RoBERTa model
-7. RoBERTa model Architecture
-8. Import the data from the hugging face library.
-9. Perform data pre-processing on the data.
-10. Build a RoBERTa model instance
-11. Compile and fine-tune the RoBERTa model
-12. Autoregressive and Autoencoder models
-13. Understanding of the XLNet model
-14. XLNet architecture vs. BERT architecture
-15. Compare XLNet with BERT and RoBERTa
-16. Build an XLNet model instance
-17. Compile and fine-tune the XLNet model
-18. Evaluate the models based on performance metrics
-19. Evaluate the models on unseen data (test data)
-20. Save the models
 
 ---
